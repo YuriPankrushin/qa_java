@@ -1,4 +1,4 @@
-package UnitTest;
+package unittest;
 
 import com.example.Cat;
 import com.example.Feline;

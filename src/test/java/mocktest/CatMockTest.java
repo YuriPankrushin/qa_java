@@ -1,4 +1,4 @@
-package MockTest;
+package mocktest;
 
 import com.example.Cat;
 import org.junit.Test;

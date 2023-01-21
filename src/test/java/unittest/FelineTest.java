@@ -1,4 +1,4 @@
-package UnitTest;
+package unittest;
 
 import com.example.Feline;
 import org.junit.Assert;
