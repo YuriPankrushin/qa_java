@@ -11,6 +11,6 @@ public class AnimalFamiliesTest {
         Animal animal = new Animal();
         String actual = animal.getFamily();
         String expected = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 }
