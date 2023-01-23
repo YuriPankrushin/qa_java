@@ -1,4 +1,4 @@
-package unittest;
+package animalstest;
 
 import com.example.Animal;
 import org.junit.Rule;

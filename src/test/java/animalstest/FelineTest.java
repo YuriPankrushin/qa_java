@@ -1,4 +1,4 @@
-package unittest;
+package animalstest;
 
 import com.example.Feline;
 import org.junit.Assert;

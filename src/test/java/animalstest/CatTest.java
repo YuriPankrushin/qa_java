@@ -1,4 +1,4 @@
-package unittest;
+package animalstest;
 
 import com.example.Cat;
 import com.example.Feline;
