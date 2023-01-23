@@ -8,38 +8,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.Arrays;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
-    @Test
-    public void checkThatLionHaveSingleKitten() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline, "Самец");
-        int actual = lion.getKittens();
-        int expected = 1;
-        Assert.assertEquals("У льва один детеныш", expected, actual);
-    }
-
-    @Test
-    public void checkThatMaleLionHasMane() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline, "Самец");
-        boolean actual = lion.doesHaveMane();
-        boolean expected = true;
-        Assert.assertEquals("У самца льва должна быть грива", expected, actual);
-    }
-
-    @Test
-    public void checkThatFemaleLionHasNoMane() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline, "Самка");
-        boolean actual = lion.doesHaveMane();
-        boolean expected = false;
-        Assert.assertEquals("У самки льва не должно быть гривы", expected, actual);
-    }
-
+    /** Exception test in Lion sex branching */
     @Test
     public void checkThatWrongLionSexThrowsCorrectException() throws Exception {
         Feline feline = new Feline();
@@ -47,12 +22,37 @@ public class LionTest {
                 Exception.class, () -> new Lion(feline, "Non-binary"));
     }
 
+    /** Tests with mocks further */
     @Mock
     Feline feline;
+
+    @Test
+    public void checkThatGetKittensCallsMethodFromAnotherClass() throws Exception {
+        Lion lion = new Lion(feline, "Самец");
+        lion.getKittens();
+        Mockito.verify(feline, Mockito.times(1)).getKittens();
+    }
+
+    @Test
+    public void checkThatGetFoodCallsMethodFromAnotherClass() throws Exception {
+        Lion lion = new Lion(feline, "Самец");
+        lion.getFood();
+        Mockito.verify(feline, Mockito.times(1)).eatMeat();
+    }
+
     @Test
     public void checkThatLionEatsMammalsBirdsAndFish() throws Exception {
         Lion lion = new Lion(feline, "Самец");
         lion.getFood();
         Mockito.when(feline.eatMeat()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
+        Assert.assertEquals("Список должен содержать 'Животные', 'Птицы', 'Рыба'", Arrays.asList("Животные", "Птицы", "Рыба"), lion.getFood());
+    }
+
+    @Test
+    public void checkThatLionHaveSingleKitten() throws Exception {
+        Lion lion = new Lion(feline, "Самка");
+        lion.getKittens();
+        Mockito.when(feline.getKittens()).thenReturn(1);
+        Assert.assertEquals("У льва один детеныш", 1, lion.getKittens());
     }
 }

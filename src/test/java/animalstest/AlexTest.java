@@ -2,7 +2,6 @@ package animalstest;
 
 import com.example.Alex;
 import com.example.Feline;
-import com.example.Predator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,8 +12,8 @@ public class AlexTest {
 
     @Test
     public void checkThatAlexLivesInNYZoo() throws Exception {
-        Predator predator = new Feline();
-        Alex alex = new Alex(predator);
+        Feline feline = new Feline();
+        Alex alex = new Alex(feline);
         String expectedPlaceOfLiving = "Нью-Йоркский зоопарк";
         String actualPlaceOfLiving = alex.getPlaceOfLiving();
         Assert.assertEquals(expectedPlaceOfLiving, actualPlaceOfLiving);
@@ -22,8 +21,8 @@ public class AlexTest {
 
     @Test
     public void checkAlexFriends() throws Exception {
-        Predator predator = new Feline();
-        Alex alex = new Alex(predator);
+        Feline feline = new Feline();
+        Alex alex = new Alex(feline);
         List<String> actual = alex.getFriends();
         List<String> expected = Arrays.asList("Марти", "Глории", "Мелман");
         Assert.assertEquals("Должен быть список ['Марти', 'Глории', 'Мелман']", actual, expected);
@@ -31,8 +30,8 @@ public class AlexTest {
 
     @Test
     public void checkAlexHasNoKittens() throws Exception {
-        Predator predator = new Feline();
-        Alex alex = new Alex(predator);
+        Feline feline = new Feline();
+        Alex alex = new Alex(feline);
         int actual = alex.getKittens();
         int expected = 0;
         Assert.assertEquals(expected, actual);

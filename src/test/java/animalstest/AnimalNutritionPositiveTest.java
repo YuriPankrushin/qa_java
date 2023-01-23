@@ -10,13 +10,13 @@ import java.util.Arrays;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class AnimalFeedPlanPositiveTest {
+public class AnimalNutritionPositiveTest {
 
     private final String animalType;
 
     private final List<String> expectedOutput;
 
-    public AnimalFeedPlanPositiveTest(String animalType, List<String> expectedOutput){
+    public AnimalNutritionPositiveTest(String animalType, List<String> expectedOutput){
         this.animalType = animalType;
         this.expectedOutput = expectedOutput;
     }
