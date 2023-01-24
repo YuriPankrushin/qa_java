@@ -43,7 +43,6 @@ public class LionTest {
     @Test
     public void checkThatLionEatsMammalsBirdsAndFish() throws Exception {
         Lion lion = new Lion(feline, "Самец");
-        lion.getFood();
         Mockito.when(feline.eatMeat()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
         Assert.assertEquals("Список должен содержать 'Животные', 'Птицы', 'Рыба'", Arrays.asList("Животные", "Птицы", "Рыба"), lion.getFood());
     }
@@ -51,7 +50,6 @@ public class LionTest {
     @Test
     public void checkThatLionHaveSingleKitten() throws Exception {
         Lion lion = new Lion(feline, "Самка");
-        lion.getKittens();
         Mockito.when(feline.getKittens()).thenReturn(1);
         Assert.assertEquals("У льва один детеныш", 1, lion.getKittens());
     }

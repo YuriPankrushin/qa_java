@@ -20,7 +20,6 @@ public class CatTest {
     @Test
     public void checkThatCatEatsMammalsBirdsAndFish() throws Exception {
         Cat cat = new Cat(feline);
-        cat.getFood();
         Mockito.when(feline.eatMeat()).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
         Assert.assertEquals("Список должен содержать 'Животные', 'Птицы', 'Рыба'", Arrays.asList("Животные", "Птицы", "Рыба"), cat.getFood());
     }
@@ -28,7 +27,6 @@ public class CatTest {
     @Test
     public void checkThatCatSaysMew() {
         Cat cat = new Cat(feline);
-        cat.getSound();
         Assert.assertEquals("Кошка должна говорить 'Мяу'", "Мяу", cat.getSound());
     }
 
